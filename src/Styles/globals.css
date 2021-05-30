@@ -1,0 +1,89 @@
+body{
+  background-color: #F5F5F5;
+}
+
+.content_section{
+  min-height: 500px;
+}
+
+.category .card-img-overlay {
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgb(255, 255, 255,0));
+  cursor: pointer;
+}
+
+.category .card-img-overlay:hover{
+  box-shadow: 0 10px 15px 0 rgba(7, 178, 246, 0.2), 0 6px 20px 0 rgba(9, 24, 235, 0.19);
+  background-image: none;
+}
+
+.product .add-to-cart-btn{
+  float: right;
+  position: absolute;
+  bottom:10px;
+  right: 10px;
+}
+.fixed_header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+  background: white;
+  margin: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.pt-200{
+  padding-top: 200px;
+}
+
+.header_h3{
+  position: fixed;
+  top: 85px;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  margin: 0;
+  padding: 10px;
+  background: white;
+  border-top: 1px solid grey;
+  /* border-bottom: 1px solid black; */
+  box-shadow: 0px 5px 20px #84a2c5;
+  height:75px;
+}
+.cart_count{
+  position: relative;
+  top: -15px;
+  right: 10px;
+}
+.category .category_label {
+  background-image: linear-gradient(to bottom right, rgb(3 3 3 / 100%), rgb(255, 255, 255,0));
+  padding: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.product:hover, .account-menu:hover {
+  box-shadow: 0 10px 15px 0 rgba(7, 178, 246, 0.2), 0 6px 20px 0 rgba(9, 24, 235, 0.19);
+  cursor: pointer;
+}
+
+.account-menu{
+  padding: 60px 20px 60px 20px ;
+  box-shadow: 0px 5px 20px #84a2c5;
+
+}
+
+.link, a{
+  color: black;
+  cursor: pointer;
+}
+.link:hover, a:hover{
+  text-decoration: none;
+  color: rgb(0, 86, 179);
+}
+
+.vertical-timeline::before {
+  background:black !important;
+}
