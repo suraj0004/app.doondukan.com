@@ -5,25 +5,27 @@ import { useEffect } from 'react';
 import CategoryLoader from 'Components/category/CategoryLoader'
 import MainLayout from 'Layouts/Main'
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function ShopCategories({ fetchCategories, categories, setShopSlug }) {
 
-  const {shop_slug} = useParams()
+  const { shop_slug } = useParams()
 
   useEffect(() => {
     if (shop_slug) {
       fetchCategories(shop_slug);
       setShopSlug(shop_slug);
     }
-  }, [shop_slug,fetchCategories,setShopSlug]);
+  }, [shop_slug, fetchCategories, setShopSlug]);
   return (
     <MainLayout>
-      <h3 className="header_h3">
-        <div className="container ">
-          All Categories
-        </div>
-      </h3>
-      <div className="pt-200">
+      <div className="page-padding-top">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><Link to="/">Home</Link></li>
+            <li class="breadcrumb-item active" aria-current="page">Categories</li>
+          </ol>
+        </nav>
         <div className="row">
           {
             categories.loading

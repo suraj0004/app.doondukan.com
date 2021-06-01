@@ -21,7 +21,6 @@ const Checkout = ({ show, onHide, open_at, close_at, grand_total, global, fetchc
     const [selectedFromTime, handleFromTimeChange] = useState(null);
     const [selectedToTime, handleToTimeChange] = useState(null);
 
-
     const handleCheckout = (e) => {
         e.preventDefault();
 
@@ -41,17 +40,18 @@ const Checkout = ({ show, onHide, open_at, close_at, grand_total, global, fetchc
             return
         }
 
+        let date = selectedDate;
         if (selectedDate._d) {
-            handleDateChange(selectedDate._d)
+            date = selectedDate._d;
         }
 
-        fromDate._d.setDate(selectedDate.getDate());
-        fromDate._d.setMonth(selectedDate.getMonth());
-        fromDate._d.setFullYear(selectedDate.getFullYear());
+        fromDate._d.setDate(date.getDate());
+        fromDate._d.setMonth(date.getMonth());
+        fromDate._d.setFullYear(date.getFullYear());
 
-        toDate._d.setDate(selectedDate.getDate());
-        toDate._d.setMonth(selectedDate.getMonth());
-        toDate._d.setFullYear(selectedDate.getFullYear());
+        toDate._d.setDate(date.getDate());
+        toDate._d.setMonth(date.getMonth());
+        toDate._d.setFullYear(date.getFullYear());
 
         fromDate = fromDate.format("Y-MM-DD HH:mm:ss")
         toDate = toDate.format("Y-MM-DD HH:mm:ss")
@@ -99,11 +99,20 @@ const Checkout = ({ show, onHide, open_at, close_at, grand_total, global, fetchc
                 </h3>
                 <hr />
                 <Form onSubmit={handleCheckout}>
-                    <Form.Group controlId="formGroupEmail">
 
-                        <div className="text-center h6">Pick-Up Date and Timing</div>
+                        <h5 className="text-center h5">Pick-Up Date and Timing</h5>
+                        <div className="text-center" id="checkout-date-selector">
                         <MuiPickersUtilsProvider utils={MomentUtils}>
-                            <DatePicker
+                            {
+                                (window.innerWidth <= 450) // for mobile devices
+                                ? <DatePicker
+                                autoOk
+                                clearable
+                                disablePast
+                                value={selectedDate}
+                                onChange={handleDateChange}
+                            />
+                                : <DatePicker
                                 autoOk
                                 clearable
                                 disablePast
@@ -111,11 +120,11 @@ const Checkout = ({ show, onHide, open_at, close_at, grand_total, global, fetchc
                                 onChange={handleDateChange}
                                 orientation="landscape"
                                 variant="static"
-                                format="YYYY"
                             />
+                            }
+                           
                         </MuiPickersUtilsProvider>
-
-                    </Form.Group>
+                        </div>
 
                     <div className="row">
                         <div className="col-6">

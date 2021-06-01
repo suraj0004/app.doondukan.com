@@ -7,11 +7,11 @@ const BackHeader = () => {
     let history = useHistory();
 
     return (
-        <h3 className="header_h3">
+        <div className="header_h3">
         <div className="container ">
             <button type="button" onClick={()=>history.goBack()} className="btn"> <FaRegArrowAltCircleLeft size="35" /> </button> Back
         </div>
-    </h3>
+    </div>
     );
 };
 

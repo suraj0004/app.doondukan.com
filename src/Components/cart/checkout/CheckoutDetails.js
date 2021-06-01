@@ -14,7 +14,9 @@ function CheckoutDetails({ shop_info, cart, isAuthenticated }) {
     const [regiterModalShow, setRegisterModal] = useState(false);
 
 
-    let grand_total = 0;
+    let grand_total = cart.reduce((sum, item) =>{
+        return sum + (item.quantity * item.product.price)
+    },0);
 
     let ModalComponent, ButtonComponent;
     if (isAuthenticated) {
@@ -63,7 +65,6 @@ function CheckoutDetails({ shop_info, cart, isAuthenticated }) {
                 {
                     cart.map(item => {
                         let total = item.quantity * item.product.price;
-                        grand_total += total;
                         return <>
                             <div className="row p-2">
                                 <div className="col-6 text-left p-0 m-0 ">

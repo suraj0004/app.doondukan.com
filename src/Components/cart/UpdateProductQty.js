@@ -22,13 +22,13 @@ function UpdateProductQty({className, item, updateCartProduct, deleteCartProduct
     return (
         <>
            <div className={`btn-group btn-group-toggle btn-sm ${className}`} data-toggle="buttons">
-          <label className="btn btn-outline-danger  btn-sm ">
+          <label className="btn btn-outline-danger btn-sm p-0 m-0">
             <button className="btn btn-sm"  onClick={() => subQuantity(item)} > <FaMinus /> </button>
           </label>
           <label className="btn ">
             {item.quantity}
           </label>
-          <label className="btn btn-outline-primary  btn-sm">
+          <label className="btn btn-outline-primary btn-sm  p-0 m-0">
             <button className="btn btn-sm"  onClick={() => addQuantity(item)}> <FaPlus /> </button>
           </label>
         </div>  

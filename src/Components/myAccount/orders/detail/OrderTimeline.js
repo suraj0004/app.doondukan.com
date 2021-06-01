@@ -30,7 +30,7 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
 
 
   return (
-    <VerticalTimeline layout="1-column-left" >
+    <VerticalTimeline layout="1-column-left" animate={false}>
       
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -40,17 +40,17 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
         iconStyle={{ background: colors.placed, color: '#fff' }}
         icon={<FaListAlt />}
       >
-        <h5 className="vertical-timeline-element-subtitle">
+        <h6 className="vertical-timeline-element-subtitle">
           Order Placed
           <br/>
           {
             (status === 0)
-            ?<button className="btn btn-danger btn-sm mt-3 font-weight-bold border" onClick={() => cancelOrder(order_no)} >Cancle Order</button>
+            ?<button className="btn btn-danger btn-sm mt-3 font-weight-bold border" onClick={() => cancelOrder(order_no)} >Cancel Order</button>
             :(status === 3)
-            ? <span class="badge badge-danger p-2 mt-3">Cancelled</span>
+            ? <span class="badge badge-warning p-2 mt-3">Cancelled</span>
             :null
           }
-          </h5>
+          </h6>
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
@@ -61,8 +61,8 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
         iconStyle={{ background: colors.confirmed, color: '#fff' }}
         icon={<FaBoxes />}
       >
-        <h5 className="vertical-timeline-element-subtitle">
-          Order Confirmed</h5>
+        <h6 className="vertical-timeline-element-subtitle">
+          Order Confirmed</h6>
       </VerticalTimelineElement>
 
       <VerticalTimelineElement
@@ -73,7 +73,7 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
         iconStyle={{ background: colors.completed, color: '#fff' }}
         icon={<FaCheckCircle />}
       >
-        <h5 className="vertical-timeline-element-subtitle">
+        <h6 className="vertical-timeline-element-subtitle">
           Order Completed
           <br/>
           {/* {
@@ -81,7 +81,7 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
             ?<button className="btn btn-success btn-sm mt-3 font-weight-bold border">Get Receipt</button>
             :null
           } */}
-          </h5>
+          </h6>
       </VerticalTimelineElement>
 
     </VerticalTimeline>

@@ -5,7 +5,6 @@ import { doLogOut } from 'ReduxStore/index';
 import { connect } from 'react-redux';
 import ProfileModal from "Components/modals/Profile"
 import MainLayout from 'Layouts/Main'
-import BackHeader from "Components/BackHeader"
 import { useHistory } from "react-router-dom";
 
 
@@ -25,8 +24,13 @@ const MyAccount = ({ doLogOut, global }) => {
     }
     return (
         <MainLayout>
-            <BackHeader />
-            <div className="pt-200">
+            <div className="page-padding-top">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><Link to={`/`}>Home</Link></li>
+                        <li class="breadcrumb-item active" aria-current="page">My Account</li>
+                    </ol>
+                </nav>
                 <div className="row ">
                     <div className="col-md-2"></div>
                     <div className="col-md-4 mb-3 ">
@@ -53,7 +57,7 @@ const MyAccount = ({ doLogOut, global }) => {
                     <div className="col-md-4 mb-3">
                         <div className="card text-center">
                             <div className="card-body account-menu">
-                                <h5 className="card-title link"> <FaShoppingCart /> <Link to="/cart"> My Cart</Link></h5>
+                                <h5 className="card-title link"> <FaShoppingCart /> <Link to="/all-cart"> My Shop Cart</Link></h5>
                             </div>
                         </div>
                     </div>

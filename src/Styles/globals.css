@@ -28,34 +28,24 @@ body{
   right: 0;
   left: 0;
   z-index: 9;
-  background: white;
   margin: 0;
   padding-left: 25px;
   padding-right: 25px;
-}
-
-.pt-200{
-  padding-top: 200px;
-}
-
-.header_h3{
-  position: fixed;
-  top: 85px;
-  left: 0;
-  right: 0;
-  z-index: 9;
-  margin: 0;
-  padding: 10px;
   background: white;
   border-top: 1px solid grey;
-  /* border-bottom: 1px solid black; */
   box-shadow: 0px 5px 20px #84a2c5;
-  height:75px;
 }
+
+.page-padding-top{
+  padding-top: 100px;
+}
+
 .cart_count{
   position: relative;
-  top: -15px;
+  top: -10px;
   right: 10px;
+  padding: 3px 6px 3px 6px;
+
 }
 .category .category_label {
   background-image: linear-gradient(to bottom right, rgb(3 3 3 / 100%), rgb(255, 255, 255,0));
@@ -86,4 +76,86 @@ body{
 
 .vertical-timeline::before {
   background:black !important;
+}
+
+.breadcrumb{
+  background: white;
+  box-shadow: 0px 3px 15px #84a2c5;
+}
+
+@media only screen and (max-width: 600px) {
+  .fixed_header{
+    padding: 10px;
+  }
+  .fixed_header a{
+    font-size:25px;
+  }
+  .page-padding-top{
+    padding-top: 80px;
+  }
+  h1{
+    font-size:30px !important;
+  }
+  h2{
+    font-size:28px !important;
+  }
+  h3{
+    font-size:25px !important;
+  }
+  h4{
+    font-size:23px !important;
+  }
+  h5{
+    font-size:20px !important;
+  }
+  h6{
+    font-size:18px !important;
+  }
+  p, div{
+    font-size:15px !important;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .fixed_header{
+    padding: 10px;
+  }
+  .fixed_header a{
+    font-size:20px;
+  }
+  h1{
+    font-size:28px !important;
+  }
+  h2{
+    font-size:25px !important;
+  }
+  h3{
+    font-size:23px !important;
+  }
+  h4{
+    font-size:20px !important;
+  }
+  h5{
+    font-size:18px !important;
+  }
+  h6{
+    font-size:15px !important;
+  }
+  p, div{
+    font-size:12px !important;
+  }
+  #cart-container{
+    padding: 5px !important;
+  }
+  .order-detail-product-total-price{
+    padding-top: 5px !important;
+    border-bottom: 1px solid rgb(40, 145, 240);
+  }
+
+}
+
+@media only screen and (max-width: 450px) {
+  #checkout-date-selector div{
+    display: block !important;
+  }
 }

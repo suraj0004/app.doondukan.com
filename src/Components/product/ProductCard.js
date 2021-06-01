@@ -24,9 +24,9 @@ function ProductCard({ product, addToCart, cart }) {
                         :<button onClick={() => addToCart(product)} className="btn btn-outline-primary add-to-cart-btn ">Add <FaPlus /> </button>
                     }
                     <div className="card-body">
-                        <h3 className="card-title">{product.name}</h3>
+                        <h5 className="card-title">{product.name}</h5>
                         <p className="card-text">
-                        <span className="h4">{product.price}</span> / {product.weight}
+                        <span className="h6">{product.price}</span> / {product.weight}
                         </p>
                     </div>
                 </div>

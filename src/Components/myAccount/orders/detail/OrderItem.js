@@ -5,15 +5,15 @@ const OrderItem = ({item}) => {
 
     let price = Number(item.price).toFixed(2)
     return (
-        <div className="row p-2">
-        <div className="col-3 text-center">
+        <div className="row order-detail-product p-2 ">
+        <div className="col-md-3 text-center">
             <img src={item.product.thumbnail}
             height="90"
             width="90"
             alt={item.product.name}
             />
         </div>
-        <div className="col-6">
+        <div className="col-md-6">
             <p className="m-0 p-0">
                 {item.product.name}
             </p>
@@ -24,7 +24,7 @@ const OrderItem = ({item}) => {
             <span class="badge badge-primary p-2 mt-3"> {item.quantity} </span> X <FaRupeeSign/>{price}
             </p>
         </div>
-        <div className="col-3">
+        <div className="col-md-3 order-detail-product-total-price">
         <div style={{ 
             position: "absolute",
             bottom: 10,
@@ -33,6 +33,7 @@ const OrderItem = ({item}) => {
         <FaRupeeSign/>{price * item.quantity}
         </div>
         </div>
+    
     </div>
     );
 };

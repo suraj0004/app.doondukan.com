@@ -7,7 +7,8 @@ import Orders from "Pages/Orders"
 import OrderDetail from "Pages/Orders/Detail"
 import ShopCategories from "Pages/ShopCategories"
 import Products from "Pages/ShopCategories/Products"
-import Cart from "Pages/Cart"
+import AllCart from "Pages/Carts"
+import Cart from "Pages/Carts/Cart"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <ProtectedRoute exact path='/my-account' component={MyAccount} />
           <ProtectedRoute exact path='/orders' component={Orders} />
+          <ProtectedRoute exact path='/all-cart' component={AllCart} />
           <ProtectedRoute exact path='/orders/:order_no' component={OrderDetail} />
           <Route exact path='/:shop_slug' component={ShopCategories} />
           <Route exact path='/:shop_slug/cart' component={Cart} />

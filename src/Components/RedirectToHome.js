@@ -7,7 +7,7 @@ const RedirectToHome = ({toPath}) => {
         router.push(toPath)
     },[])
     return (
-        <div className="pt-200 text-center">
+        <div className="page-padding-top text-center">
             <div className="row">
             Waiting.....
             </div>

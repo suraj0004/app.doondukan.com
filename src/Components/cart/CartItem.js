@@ -5,7 +5,7 @@ import {FaRupeeSign} from "react-icons/fa"
 function CartItem({ item }) {
 
   return (
-    <div className="row p-2 m-2">
+    <div className="row m-2">
       <div className="col-md-3 text-center img-responsive">
         <img
           src={item.product.image}
@@ -15,11 +15,11 @@ function CartItem({ item }) {
           alt={item.product.name}
         />
       </div>
-      <div className="col-md-8 p-2">
-        <h6 className="h6">{item.product.name}</h6>
+      <div className="col-md-8 pt-2">
+        <h5>{item.product.name}</h5>
         <UpdateProductQty className="float-right" item={item} />
         <p className="card-text">
-         <span className="h5"> <FaRupeeSign size="15"/> {item.product.price}</span> / {item.product.weight}
+         <span className="h6"> <FaRupeeSign size="15"/> {item.product.price}</span> / {item.product.weight}
         </p>
       </div>
     </div>

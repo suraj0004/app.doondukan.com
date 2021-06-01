@@ -132,11 +132,11 @@ const Register = ({show, onHide, doRegister, showLogin, syncCart}) => {
 
                         <div className="social-auth-links text-center mb-3">
                             <p>- OR -</p>
-                            <a href="/" className="btn btn-block btn-danger">
+                            {/* <a href="/" className="btn btn-block btn-danger">
                                 <FaLock /> I forgot my password
-                            </a>
+                            </a> */}
                             <button onClick={showLogin} className="btn btn-block btn-success">
-                                <FaUserAlt /> Already have an account? Sign In
+                                <FaUserAlt /> Already have an account? <br/> Sign In
                             </button>
 
                         </div>

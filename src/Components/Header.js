@@ -18,24 +18,20 @@ const Header = ({ cart_count, global }) => {
           {
             (global.shop_slug)
               ? <Link to={`/${global.shop_slug}`} className="brand h1" role="button" >Shop Name</Link>
-              : <Link to="/" className="brand h1" role="button" >DoonDukan</Link>
+              : <Link to="/" className="brand h3" role="button" >DoonDukan</Link>
           }
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text className="m-2" role="button">
-            <Link to={`/${global.shop_slug}/cart`} className="nav-link" >
-              <FaShoppingCart size="40" />
-              <span className="badge badge-danger cart_count">{cart_count}</span>
+            <Link to={`/${global.shop_slug}/cart`} className="nav-link p-0" >
+              <FaShoppingCart size="30" />
+              <span className="badge badge-danger cart_count rounded-circle">{cart_count}</span>
             </Link>
-          </Navbar.Text>
-          <Navbar.Text className="m-2">
             {
               global.isAuthenticated
-                ? <Link to="/my-account" className="btn nav-link"><FaUserCircle size="40" role="button" /></Link>
-                : <button onClick={() => setLoginModal(true)} className="btn nav-link"><FaUserCircle size="40" role="button" /></button>
+                ? <Link to="/my-account" className="btn nav-link p-0"><FaUserCircle size="30" role="button" /></Link>
+                : <button onClick={() => setLoginModal(true)} className="btn nav-link link p-0"><FaUserCircle size="30" role="button" /></button>
             }
-          </Navbar.Text>
         </Navbar.Collapse>
       </div>
       <LoginModal
