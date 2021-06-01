@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { FaUserAlt, FaKey, FaUserPlus, FaLock, FaSpellCheck } from 'react-icons/fa';
+import { FaUserAlt, FaKey, FaUserPlus, FaSpellCheck } from 'react-icons/fa';
 import { doRegister, syncCart } from 'ReduxStore/index';
 import { connect } from 'react-redux';
 
