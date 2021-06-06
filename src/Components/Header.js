@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Navbar } from "react-bootstrap";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 import { connect } from "react-redux";
@@ -18,13 +18,14 @@ const Header = ({ cart_count, global, setShopSlug, fetchcart }) => {
     }
   }, [shop_slug, setShopSlug]);
 
-  useEffect(() => {
+  const myCart = useCallback(() => fetchcart, [fetchcart]);
 
+  useEffect(() => {
     // fetch from index DB
     if (!global.isAuthenticated && !location.pathname.includes("/cart")) {
-      fetchcart(); 
+      myCart();
     }
-  }, [fetchcart,global,location]);
+  });
 
   return (
     <Navbar className="fixed_header">
