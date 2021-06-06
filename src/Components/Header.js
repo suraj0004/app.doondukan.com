@@ -1,23 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from 'react-bootstrap';
 import { FaUserCircle, FaShoppingCart } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import LoginModal from "Components/modals/Login"
 import RegisterModal from "Components/modals/Register"
-import { Link } from 'react-router-dom';
-
-const Header = ({ cart_count, global }) => {
-
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { setShopSlug } from 'ReduxStore/index'
+const Header = ({ cart_count, global, setShopSlug }) => {
+  let location = useLocation();
   const [loginModalShow, setLoginModal] = useState(false);
   const [regiterModalShow, setRegisterModal] = useState(false);
+
+  const { shop_slug } = useParams()
+  useEffect(() =>{
+    if(shop_slug){
+      setShopSlug(shop_slug)
+    }
+  },[])
 
   return (
     <Navbar className="fixed_header">
       <div className="container">
         <Navbar.Brand >
           {
-            (global.shop_slug)
-              ? <Link to={`/${global.shop_slug}`} className="brand h1" role="button" >Shop Name</Link>
+            (global.shop_slug && location.pathname !== "/")
+              ? <Link to={`/${global.shop_slug}`} className="brand h1" role="button" >{global.shop_name}</Link>
               : <Link to="/" className="brand h3" role="button" >DoonDukan</Link>
           }
         </Navbar.Brand>
@@ -61,5 +68,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setShopSlug: (shop_slug) => dispatch(setShopSlug(shop_slug))
+  }
+}
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
