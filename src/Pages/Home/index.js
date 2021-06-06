@@ -6,7 +6,7 @@ import ShopList from "Components/home/ShopList";
 const Home = ({ shops, fetchShopList }) => {
   useEffect(() => {
     fetchShopList();
-  }, []);
+  }, [fetchShopList]);
 
   console.log(shops);
 

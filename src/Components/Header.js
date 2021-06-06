@@ -16,7 +16,7 @@ const Header = ({ cart_count, global, setShopSlug, fetchcart }) => {
     if (shop_slug) {
       setShopSlug(shop_slug);
     }
-  }, [shop_slug]);
+  }, [shop_slug, setShopSlug]);
 
   useEffect(() => {
 
@@ -24,7 +24,7 @@ const Header = ({ cart_count, global, setShopSlug, fetchcart }) => {
     if (!global.isAuthenticated && !location.pathname.includes("/cart")) {
       fetchcart(); 
     }
-  }, []);
+  }, [fetchcart,global,location]);
 
   return (
     <Navbar className="fixed_header">
