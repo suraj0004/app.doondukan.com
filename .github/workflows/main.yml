@@ -1,0 +1,35 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy to production
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2.3.2
+
+    - name: Use Node.js 12
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+      
+    - name: 🔨 Creating ENV file
+      run: |
+        cat <<EOT >> .env
+        REACT_APP_API_BASE_PATH=${{ secrets.LIVE_API_BASE_PATH }}
+        EOT
+        cat .env
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ secrets.ftp_server }}
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
