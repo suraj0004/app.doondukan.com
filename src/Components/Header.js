@@ -47,7 +47,7 @@ const Header = ({ cart_count, global, setShopSlug, fetchcart }) => {
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Link to={`/${global.shop_slug}/cart`} className="nav-link p-0">
+          <Link to={(global.shop_slug)?`/${global.shop_slug}/cart`:'/all-cart'} className="nav-link p-0">
             <FaShoppingCart size="30" />
             <span className="badge badge-danger cart_count rounded-circle">
               {cart_count}
