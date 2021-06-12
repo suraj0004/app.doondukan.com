@@ -24,18 +24,18 @@ const Checkout = ({ show, onHide, open_at, close_at, grand_total, global, fetchc
     const handleCheckout = (e) => {
         e.preventDefault();
 
-        let fromDate = selectedFromTime;
-        let toDate = selectedToTime;
+        let fromTime = selectedFromTime;
+        let toTime = selectedToTime;
 
         if (!selectedDate) {
             alert('Please select date')
             return
         }
-        if (!fromDate) {
+        if (!fromTime) {
             alert('Please select from time')
             return
         }
-        if (!toDate) {
+        if (!toTime) {
             alert('Please select to time')
             return
         }
@@ -45,20 +45,20 @@ const Checkout = ({ show, onHide, open_at, close_at, grand_total, global, fetchc
             date = selectedDate._d;
         }
 
-        fromDate._d.setDate(date.getDate());
-        fromDate._d.setMonth(date.getMonth());
-        fromDate._d.setFullYear(date.getFullYear());
+        fromTime._d.setDate(date.getDate());
+        fromTime._d.setMonth(date.getMonth());
+        fromTime._d.setFullYear(date.getFullYear());
 
-        toDate._d.setDate(date.getDate());
-        toDate._d.setMonth(date.getMonth());
-        toDate._d.setFullYear(date.getFullYear());
+        toTime._d.setDate(date.getDate());
+        toTime._d.setMonth(date.getMonth());
+        toTime._d.setFullYear(date.getFullYear());
 
-        fromDate = fromDate.format("Y-MM-DD HH:mm:ss")
-        toDate = toDate.format("Y-MM-DD HH:mm:ss")
+        fromTime = fromTime.format("Y-MM-DD HH:mm:ss")
+        toTime = toTime.format("Y-MM-DD HH:mm:ss")
 
         const payload = {
-            fromDate: fromDate,
-            toDate: toDate
+            fromTime: fromTime,
+            toTime: toTime
         }
 
         authApi.post(`order/checkout/${global.shop_slug}`, payload)
