@@ -19,9 +19,14 @@ function ProductCard({ product, addToCart, cart }) {
                 </div>
                 <div className="col-md-8">
                     {
-                        (item)
-                        ?<UpdateProductQty className="add-to-cart-btn" item={item} />
-                        :<button onClick={() => addToCart(product)} className="btn btn-outline-primary add-to-cart-btn ">Add <FaPlus /> </button>
+                        (product.out_of_stock)
+                        ?<span className="badge badge-warning add-to-cart-btn p-2">Out of stock</span>
+                        :(
+                            (item)
+                            ?<UpdateProductQty className="add-to-cart-btn" item={item} />
+                            :<button onClick={() => addToCart(product)} className="btn btn-outline-primary add-to-cart-btn ">Add <FaPlus /> </button>
+                        )
+                       
                     }
                     <div className="card-body">
                         <h5 className="card-title">{product.name}</h5>
