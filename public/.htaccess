@@ -8,6 +8,6 @@
   RewriteRule . /index.html [L]
 
   RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP_HOST} ^app\.doondukan\.com [NC]
+  RewriteCond %{HTTP_HOST} ^app\.doondukan\.com/$ [NC]
   RewriteRule ^(.*)$ https://app.doondukan.com/$1 [R,L]
 </IfModule>
