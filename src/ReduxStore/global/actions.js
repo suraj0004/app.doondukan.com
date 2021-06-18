@@ -115,6 +115,28 @@ export const doRegister = (payload) => {
   };
 };
 
+export const sendMobileVerificationOTP = (payload) => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      dispatch(showLoader());
+      api
+        .post("send-otp", payload)
+        .then((response) => {
+          if (response.data.success) {
+            resolve();
+          } else {
+            errorNotification(response.data.message);
+            reject();
+          }
+        })
+        .catch((error) => {
+          errorNotification(api_fail_error);
+          reject();
+        });
+    });
+  };
+};
+
 export const setTokenCookies = (remember, token, user) => {
   let options = { path: "/" };
   if (remember) {
