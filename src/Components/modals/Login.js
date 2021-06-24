@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { FaUserAlt, FaKey, FaUserPlus } from 'react-icons/fa';
+import { FaUserAlt, FaKey, FaUserPlus,FaLock } from 'react-icons/fa';
 import { doLogin, syncCart } from 'ReduxStore/index';
 import { connect } from 'react-redux';
 
-const Login = ({show, onHide, doLogin, showRegister, syncCart}) => {
+const Login = ({show, onHide, doLogin, showRegister, syncCart, showForgotPassword}) => {
     const [form, setForm] = useState({
         phone : "",
         password : "",
@@ -110,9 +110,9 @@ const Login = ({show, onHide, doLogin, showRegister, syncCart}) => {
 
                         <div className="social-auth-links text-center mb-3">
                             <p>- OR -</p>
-                            {/* <a href="/" className="btn btn-block btn-danger">
+                            <button onClick={showForgotPassword} className="btn btn-block btn-danger">
                                 <FaLock /> I forgot my password
-                            </a> */}
+                            </button>
                             <button onClick={showRegister} className="btn btn-block btn-success">
                                 <FaUserPlus /> Don't have an account? <br/> Sign Up Now
                             </button>

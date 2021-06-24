@@ -4,12 +4,14 @@ import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 import { connect } from "react-redux";
 import LoginModal from "Components/modals/Login";
 import RegisterModal from "Components/modals/Register";
+import ForgotPasswordModal from "Components/modals/ForgotPassword";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { setShopSlug, fetchcart } from "ReduxStore/index";
 const Header = ({ cart_count, global, setShopSlug, fetchcart }) => {
   let location = useLocation();
   const [loginModalShow, setLoginModal] = useState(false);
   const [regiterModalShow, setRegisterModal] = useState(false);
+  const [forgotPasswordModalShow, setForgotPasswordModal] = useState(false);
 
   const { shop_slug } = useParams();
   useEffect(() => {
@@ -73,6 +75,18 @@ const Header = ({ cart_count, global, setShopSlug, fetchcart }) => {
         showRegister={() => {
           setLoginModal(false);
           setRegisterModal(true);
+        }}
+        showForgotPassword={() => {
+          setLoginModal(false);
+          setForgotPasswordModal(true);
+        }}
+      />
+        <ForgotPasswordModal
+        show={forgotPasswordModalShow}
+        onHide={() => setForgotPasswordModal(false)}
+        showLogin={() => {
+          setForgotPasswordModal(false);
+          setLoginModal(true);
         }}
       />
       <RegisterModal

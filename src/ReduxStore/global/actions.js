@@ -210,3 +210,48 @@ export const updateProfile = (payload) => {
     });
   };
 };
+
+export const sendForgotPasswordOtp = (payload) => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      dispatch(showLoader());
+      api
+        .post("send-otp", payload)
+        .then((response) => {
+          if (response.data.success) {
+            resolve();
+          } else {
+            errorNotification(response.data.message);
+            reject();
+          }
+        })
+        .catch((error) => {
+          errorNotification(api_fail_error);
+          reject();
+        });
+    });
+  };
+};
+
+export const doResetPassword = (payload) => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      dispatch(showLoader());
+      api
+        .post("forgot-password", payload)
+        .then((response) => {
+          if (response.data.success) {
+            successNotification(response.data.message);
+            resolve();
+          } else {
+            errorNotification(response.data.message);
+            reject();
+          }
+        })
+        .catch((error) => {
+          errorNotification(api_fail_error);
+          reject();
+        });
+    });
+  };
+};
