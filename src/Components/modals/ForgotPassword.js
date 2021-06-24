@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
-import { FaUserAlt, FaKey, FaUserPlus, FaEdit } from "react-icons/fa";
+import { FaUserAlt, FaKey, FaEdit, FaFingerprint, FaSpellCheck } from "react-icons/fa";
 import { doResetPassword, sendForgotPasswordOtp } from "ReduxStore/index";
 import { connect } from "react-redux";
 import { errorNotification } from "Services/notification";
@@ -142,7 +142,7 @@ const ForgotPassword = ({
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
-                      <FaKey />
+                      <FaFingerprint />
                     </div>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ const ForgotPassword = ({
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
-                      <FaKey />
+                      <FaSpellCheck />
                     </div>
                   </div>
                 </div>
