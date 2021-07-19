@@ -6,6 +6,7 @@ import globalReducer from 'ReduxStore/global/reducer';
 import orderReducer from 'ReduxStore/orders/orderReducer';
 import orderDetailReducer from 'ReduxStore/orderDetails/orderDetailReducer';
 import homeReducer from 'ReduxStore/home/homeReducer';
+import myAddressReducer from 'ReduxStore/myAddresses/myAddressReducer';
 
 const rootReducer = combineReducers({
     categories: categoryReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     orders: orderReducer,
     orderDetail : orderDetailReducer,
     home: homeReducer,
+    myAddresses: myAddressReducer,
 
 });
 

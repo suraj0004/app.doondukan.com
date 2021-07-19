@@ -88,6 +88,23 @@ body{
   box-shadow: 0px 3px 15px #84a2c5;
 }
 
+.address_table td{
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.add-address-placeholder{
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+.add-address-placeholder:hover{
+  border-color:#0069D9;
+  color: #0069D9;
+}
+
 @media only screen and (max-width: 600px) {
   .fixed_header{
     padding: 10px;

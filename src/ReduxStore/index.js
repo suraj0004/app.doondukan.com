@@ -5,3 +5,4 @@ export * from 'ReduxStore/global/actions';
 export * from 'ReduxStore/orders/orderActions';
 export * from 'ReduxStore/orderDetails/orderDetailActions';
 export * from 'ReduxStore/home/homeActions';
+export * from 'ReduxStore/myAddresses/myAddressActions';

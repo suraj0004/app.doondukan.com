@@ -3,6 +3,7 @@ import ProtectedRoute from "Components/ProtectedRoute"
 
 import Home from "Pages/Home"
 import MyAccount from "Pages/MyAccount"
+import MyAddresses from "Pages/MyAddresses"
 import Orders from "Pages/Orders"
 import OrderDetail from "Pages/Orders/Detail"
 import ShopCategories from "Pages/ShopCategories"
@@ -16,6 +17,7 @@ function App() {
       <Switch>
           <Route exact path='/' component={Home} />
           <ProtectedRoute exact path='/my-account' component={MyAccount} />
+          <ProtectedRoute exact path='/my-addresses' component={MyAddresses} />
           <ProtectedRoute exact path='/orders' component={Orders} />
           <ProtectedRoute exact path='/all-cart' component={AllCart} />
           <ProtectedRoute exact path='/orders/:order_no' component={OrderDetail} />
