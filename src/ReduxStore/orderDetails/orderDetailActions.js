@@ -6,6 +6,10 @@ import {
     ORDER_DETAIL_FETCH_FAILURE
 } from "./orderDetailTypes";
 
+import { showLoader, stopLoader } from "ReduxStore/global/actions";
+import { errorNotification } from "Services/notification";
+
+
 export const orderDetailRequest = () => {
     return {
         type: ORDER_DETAIL_FETCH_REQUEST
@@ -61,3 +65,26 @@ export const cancelOrder = (order_no) => {
             })
     }
 }
+
+export const downloadInvoice = (order_no) => {
+    return (dispatch) => {
+      return new Promise((resolve, reject) => {
+        dispatch(showLoader());
+        authApi.post(`order/invoice`,{
+            order_no
+        },
+        {
+            responseType: 'blob'
+        })
+          .then((response) => {
+              resolve(response);
+          })
+          .catch((error) => {
+            errorNotification(api_fail_error);
+            reject(error);
+          }).finally(() => {
+            dispatch(stopLoader());
+          });
+      });
+    };
+  };
