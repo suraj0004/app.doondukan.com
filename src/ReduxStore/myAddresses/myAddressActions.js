@@ -98,3 +98,29 @@ export const upddateAddress = (payload) => {
     });
   };
 };
+
+export const deleteAddress = (id) => {
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      dispatch(showLoader());
+      authApi
+        .post(`address/delete/${id}`)
+        .then((response) => {
+          if (response.data.success) {
+            successNotification(response.data.message);
+            resolve();
+          } else {
+            errorNotification(response.data.message);
+            reject();
+          }
+        })
+        .catch((error) => {
+          errorNotification(api_fail_error);
+          reject();
+        })
+        .finally(() => {
+          dispatch(stopLoader());
+        });
+    });
+  };
+};

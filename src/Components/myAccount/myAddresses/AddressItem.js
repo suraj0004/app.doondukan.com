@@ -1,7 +1,15 @@
 import React from "react";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import { deleteAddress, fetchAddresses } from "ReduxStore/index";
+import { connect } from "react-redux";
 
-const AddressItem = ({ address, onEdit }) => {
+
+const AddressItem = ({ address, onEdit, deleteAddress, fetchAddresses }) => {
+  const onDelete = (id) => {
+    deleteAddress(id).then(() => {
+      fetchAddresses();
+    })
+  }
   return (
     <div className="col-md-6 pb-3">
       <div className="card shadow">
@@ -44,9 +52,8 @@ const AddressItem = ({ address, onEdit }) => {
             >
               <FaRegEdit />
             </button>
-            <button className="btn btn-danger float-right m-1">
-              {" "}
-              <FaRegTrashAlt />{" "}
+            <button className="btn btn-danger float-right m-1" onClick={() => onDelete(address.id)}>
+              <FaRegTrashAlt />
             </button>
           </h6>
         </div>
@@ -55,4 +62,11 @@ const AddressItem = ({ address, onEdit }) => {
   );
 };
 
-export default AddressItem;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteAddress: (id) => dispatch(deleteAddress(id)),
+    fetchAddresses: () => dispatch(fetchAddresses()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddressItem);
