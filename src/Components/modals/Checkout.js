@@ -38,7 +38,7 @@ const Checkout = ({
 
   useEffect(() => {
     fetchAddresses();
-  }, []);
+  }, [fetchAddresses]);
 
   useEffect(() => {
     if (myAddresses && myAddresses.data.length) {
@@ -139,10 +139,10 @@ const Checkout = ({
         </h3>
         <hr />
         <Form onSubmit={handleCheckout}>
-          <div class="form-group">
+          <div className="form-group">
             <label className="font-weight-bold">Delivery medium</label>
             <select
-              class="form-control"
+              className="form-control"
               value={deliveryMedium}
               onChange={handleDeliveryMediumChange}
             >

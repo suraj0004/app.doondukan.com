@@ -21,7 +21,7 @@ const OrderItem = ({item}) => {
                 <small> {item.product.weight}</small>
             </p>
             <p className="m-0 p-0">
-            <span class="badge badge-primary p-2 mt-3"> {item.quantity} </span> X <FaRupeeSign/>{price}
+            <span className="badge badge-primary p-2 mt-3"> {item.quantity} </span> X <FaRupeeSign/>{price}
             </p>
         </div>
         <div className="col-md-3 order-detail-product-total-price">

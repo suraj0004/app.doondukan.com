@@ -57,7 +57,7 @@ const getInvoice = () => {
             (status === 0)
             ?<button className="btn btn-danger btn-sm mt-3 font-weight-bold border" onClick={() => cancelOrder(order_no)} >Cancel Order</button>
             :(status === 3)
-            ? <span class="badge badge-warning p-2 mt-3">Cancelled</span>
+            ? <span className="badge badge-warning p-2 mt-3">Cancelled</span>
             :null
           }
           </h6>

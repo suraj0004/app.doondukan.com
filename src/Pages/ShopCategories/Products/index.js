@@ -20,11 +20,11 @@ function Products({ fetchProducts, products, global }) {
     <MainLayout>
       <div className="page-padding-top">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to={`/${shop_slug}`}>Categories</Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Products
             </li>
           </ol>
