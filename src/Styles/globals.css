@@ -1,28 +1,33 @@
-body{
-  background-color: #F5F5F5;
+body {
+  background-color: #f5f5f5;
 }
 
-.content_section{
+.content_section {
   min-height: 500px;
 }
 
 .category .card-img-overlay {
-  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgb(255, 255, 255,0));
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.3),
+    rgb(255, 255, 255, 0)
+  );
   cursor: pointer;
 }
 
-.category .card-img-overlay:hover{
-  box-shadow: 0 10px 15px 0 rgba(7, 178, 246, 0.2), 0 6px 20px 0 rgba(9, 24, 235, 0.19);
+.category .card-img-overlay:hover {
+  box-shadow: 0 10px 15px 0 rgba(7, 178, 246, 0.2),
+    0 6px 20px 0 rgba(9, 24, 235, 0.19);
   background-image: none;
 }
 
-.product .add-to-cart-btn{
+.product .add-to-cart-btn {
   float: right;
   position: absolute;
-  bottom:10px;
+  bottom: 10px;
   right: 10px;
 }
-.fixed_header{
+.fixed_header {
   position: fixed;
   top: 0;
   right: 0;
@@ -36,131 +41,160 @@ body{
   box-shadow: 0px 5px 20px #84a2c5;
 }
 
-.page-padding-top{
+.page-padding-top {
   padding-top: 100px;
 }
 
-.cart_count{
+.cart_count {
   position: relative;
   top: -10px;
   right: 10px;
   padding: 3px 6px 3px 6px;
-
 }
 .category .category_label {
-  background-image: linear-gradient(to bottom right, rgb(3 3 3 / 100%), rgb(255, 255, 255,0));
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(3 3 3 / 100%),
+    rgb(255, 255, 255, 0)
+  );
   padding: 5px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-.product:hover, .account-menu:hover {
-  box-shadow: 0 10px 15px 0 rgba(7, 178, 246, 0.2), 0 6px 20px 0 rgba(9, 24, 235, 0.19);
+.product:hover,
+.account-menu:hover {
+  box-shadow: 0 10px 15px 0 rgba(7, 178, 246, 0.2),
+    0 6px 20px 0 rgba(9, 24, 235, 0.19);
   cursor: pointer;
 }
 
-.account-menu{
-  padding: 60px 20px 60px 20px ;
+.account-menu {
+  padding: 60px 20px 60px 20px;
   box-shadow: 0px 5px 20px #84a2c5;
-
 }
 
-.link, a{
+.link,
+a {
   color: black;
   cursor: pointer;
 }
-.link:hover, a:hover{
+.link:hover,
+a:hover {
   text-decoration: none;
   color: rgb(0, 86, 179);
 }
 
 .vertical-timeline::before {
-  background:black !important;
+  background: black !important;
 }
 
-.breadcrumb{
+.breadcrumb {
   background: white;
   box-shadow: 0px 3px 15px #84a2c5;
 }
 
-.__box-shadow{
+.__box-shadow {
   background: white;
   box-shadow: 0px 3px 15px #84a2c5;
+}
+
+.address_table td {
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.add-address-placeholder {
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+.add-address-placeholder:hover {
+  border-color: #0069d9;
+  color: #0069d9;
+}
+
+.__stick-to-bottom {
+  position: sticky;
+  bottom: 0;
 }
 
 @media only screen and (max-width: 600px) {
-  .fixed_header{
+  .fixed_header {
     padding: 10px;
   }
-  .fixed_header a{
-    font-size:25px;
+  .fixed_header a {
+    font-size: 25px;
   }
-  .page-padding-top{
+  .page-padding-top {
     padding-top: 80px;
   }
-  h1{
-    font-size:30px !important;
+  h1 {
+    font-size: 30px !important;
   }
-  h2{
-    font-size:28px !important;
+  h2 {
+    font-size: 28px !important;
   }
-  h3{
-    font-size:25px !important;
+  h3 {
+    font-size: 25px !important;
   }
-  h4{
-    font-size:23px !important;
+  h4 {
+    font-size: 23px !important;
   }
-  h5{
-    font-size:20px !important;
+  h5 {
+    font-size: 20px !important;
   }
-  h6{
-    font-size:18px !important;
+  h6 {
+    font-size: 18px !important;
   }
-  p, div{
-    font-size:15px !important;
+  p,
+  div {
+    font-size: 15px !important;
   }
 }
 
 @media only screen and (max-width: 350px) {
-  .fixed_header{
+  .fixed_header {
     padding: 10px;
   }
-  .fixed_header a{
-    font-size:20px;
+  .fixed_header a {
+    font-size: 20px;
   }
-  h1{
-    font-size:28px !important;
+  h1 {
+    font-size: 28px !important;
   }
-  h2{
-    font-size:25px !important;
+  h2 {
+    font-size: 25px !important;
   }
-  h3{
-    font-size:23px !important;
+  h3 {
+    font-size: 23px !important;
   }
-  h4{
-    font-size:20px !important;
+  h4 {
+    font-size: 20px !important;
   }
-  h5{
-    font-size:18px !important;
+  h5 {
+    font-size: 18px !important;
   }
-  h6{
-    font-size:15px !important;
+  h6 {
+    font-size: 15px !important;
   }
-  p, div{
-    font-size:12px !important;
+  p,
+  div {
+    font-size: 12px !important;
   }
-  #cart-container{
+  #cart-container {
     padding: 5px !important;
   }
-  .order-detail-product-total-price{
+  .order-detail-product-total-price {
     padding-top: 5px !important;
     border-bottom: 1px solid rgb(40, 145, 240);
   }
-
 }
 
 @media only screen and (max-width: 450px) {
-  #checkout-date-selector div{
+  #checkout-date-selector div {
     display: block !important;
   }
 }

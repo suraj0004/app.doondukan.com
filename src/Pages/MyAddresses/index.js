@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
-import OrderList from 'Components/myAccount/orders/OrderList'
+import AddressList from 'Components/myAccount/myAddresses/AddressList'
 import { connect } from 'react-redux';
-import { fetchOrders } from 'ReduxStore/index'
+import { fetchAddresses } from 'ReduxStore/index'
 import MainLayout from 'Layouts/Main'
 import { Link } from 'react-router-dom';
 
 
-const Orders = ({ fetchOrders, orders }) => {
+const MyAddresses = ({ fetchAddresses, myAddresses }) => {
 
   useEffect(() => {
-    fetchOrders();
-  }, [fetchOrders]);
+    fetchAddresses();
+  }, [fetchAddresses]);
 
   return (
     <MainLayout>
@@ -19,16 +19,16 @@ const Orders = ({ fetchOrders, orders }) => {
           <ol className="breadcrumb">
             <li className="breadcrumb-item"><Link to={`/`}>Home</Link></li>
             <li className="breadcrumb-item"><Link to={`/my-account`}>My Account</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">Orders</li>
+            <li className="breadcrumb-item active" aria-current="page">Addresses</li>
           </ol>
         </nav>
         <div className="row">
           <div className="col-12">
         
             {
-              orders.loading
+              myAddresses.loading
                 ? "Loading..."
-                : <OrderList orders={orders.data} />
+                : <AddressList myAddresses={myAddresses.data} />
             }
           </div>
         </div>
@@ -38,14 +38,14 @@ const Orders = ({ fetchOrders, orders }) => {
 };
 const mapStateToProps = (state, ownProps) => {
   return {
-    orders: state.orders,
+    myAddresses: state.myAddresses,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchOrders: () => dispatch(fetchOrders()),
+    fetchAddresses: () => dispatch(fetchAddresses()),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Orders);
+export default connect(mapStateToProps, mapDispatchToProps)(MyAddresses);

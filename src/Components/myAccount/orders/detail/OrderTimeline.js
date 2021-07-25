@@ -1,10 +1,10 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { FaListAlt, FaCheckCircle, FaBoxes } from 'react-icons/fa';
-import { cancelOrder } from 'ReduxStore/index'
+import { cancelOrder, downloadInvoice } from 'ReduxStore/index'
 import { connect } from 'react-redux';
 
-const OrderTimeline = ({status, order_no, cancelOrder}) => {
+const OrderTimeline = ({status, order_no, cancelOrder, downloadInvoice, global}) => {
   const completedColor = 'rgb(33, 150, 243)';
   const inCompletedColor = 'rgb(195,195,195)';
 
@@ -24,13 +24,23 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
     colors.confirmed = completedColor
     colors.completed = completedColor
   }
-
-
+const getInvoice = () => {
+  downloadInvoice(order_no)
+  .then((res) =>{
+    var blob = new Blob([res.data]);
+    var link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = "Invoice.pdf";
+    link.click();
+  })
+}
 
 
 
   return (
-    <VerticalTimeline layout="1-column-left" animate={false}>
+    (global.loading)
+    ?"Loading..."
+    :<VerticalTimeline layout="1-column-left" animate={false}>
       
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -47,7 +57,7 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
             (status === 0)
             ?<button className="btn btn-danger btn-sm mt-3 font-weight-bold border" onClick={() => cancelOrder(order_no)} >Cancel Order</button>
             :(status === 3)
-            ? <span class="badge badge-warning p-2 mt-3">Cancelled</span>
+            ? <span className="badge badge-warning p-2 mt-3">Cancelled</span>
             :null
           }
           </h6>
@@ -76,11 +86,11 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
         <h6 className="vertical-timeline-element-subtitle">
           Order Completed
           <br/>
-          {/* {
+          {
             (status === 2)
-            ?<button className="btn btn-success btn-sm mt-3 font-weight-bold border">Get Receipt</button>
+            ?<button className="btn btn-success btn-sm mt-3 font-weight-bold border" onClick={getInvoice} >Download Invoice</button>
             :null
-          } */}
+          }
           </h6>
       </VerticalTimelineElement>
 
@@ -88,11 +98,17 @@ const OrderTimeline = ({status, order_no, cancelOrder}) => {
   );
 };
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    global: state.global,
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     cancelOrder: (order_no) => dispatch(cancelOrder(order_no)),
+    downloadInvoice: (order_no) => dispatch(downloadInvoice(order_no)),
   }
 }
 
-export default connect(null, mapDispatchToProps)(OrderTimeline);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderTimeline);
