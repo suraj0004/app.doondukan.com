@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "react-bootstrap";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 import { connect } from "react-redux";
@@ -14,20 +14,13 @@ const Header = ({ cart_count, global, setShopSlug, fetchcart }) => {
   const [forgotPasswordModalShow, setForgotPasswordModal] = useState(false);
 
   const { shop_slug } = useParams();
+
   useEffect(() => {
     if (shop_slug) {
       setShopSlug(shop_slug);
+      fetchcart();
     }
-  }, [shop_slug, setShopSlug]);
-
-  const myCart = useCallback(() => fetchcart, [fetchcart]);
-
-  useEffect(() => {
-    // fetch from index DB
-    if (!global.isAuthenticated && !location.pathname.includes("/cart")) {
-      myCart();
-    }
-  });
+  }, [shop_slug, setShopSlug, fetchcart]);
 
   return (
     <Navbar className="fixed_header">
