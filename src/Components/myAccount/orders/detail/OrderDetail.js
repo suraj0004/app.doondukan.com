@@ -6,6 +6,13 @@ import GrandTotal from "Components/cart/GrandTotal"
 import BuyerInfo from "./BuyerInfo"
 const OrderDetail = ({ data }) => {
     let grand_total = 0
+    const deliveryInfo = {
+        isHomeDelivery: data.is_home_delivery,
+        deliveryType: data.delivery_type,
+        fromTime: data.from_time,
+        toTime: data.to_time,
+        deliveryAddress: data.delivery_address,
+    }
     return (
         <div className="col-12 card">
             <div className="row">
@@ -42,8 +49,8 @@ const OrderDetail = ({ data }) => {
             </div>
             <div className="row">
             <div className="col-md-2"></div>
-               <div className="col-md-4">
-               <BuyerInfo buyer={data.buyer} />
+               <div className="col-md-8">
+               <BuyerInfo buyer={data.buyer} deliveryInfo={deliveryInfo} />
                </div>
             </div>
         </div>
