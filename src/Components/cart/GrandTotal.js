@@ -5,11 +5,12 @@ const GrandTotal = ({
   grand_total,
   deliveryCharges = null,
   deliveryMedium = null,
+  isHomeDelivery = false,
 }) => {
   if (
     deliveryCharges &&
-    deliveryMedium &&
-    deliveryMedium !== "user-self-collected"
+    ((deliveryMedium && deliveryMedium !== "user-self-collected") ||
+      isHomeDelivery === true)
   ) {
     deliveryCharges = Number(deliveryCharges);
     return (
