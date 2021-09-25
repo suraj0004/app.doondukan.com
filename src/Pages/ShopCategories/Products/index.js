@@ -18,7 +18,7 @@ function Products({ fetchProducts, products, global }) {
     if (shop_slug && category_slug) {
       fetchProducts(shop_slug, category_slug, search);
     }
-  }, [shop_slug, category_slug, fetchProducts]);
+  }, [shop_slug, category_slug, fetchProducts, search]);
 
   const handleProductSearch = (e) => {
     const search = e.target.value;
