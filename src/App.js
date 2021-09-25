@@ -24,6 +24,7 @@ function App() {
           <Route exact path='/:shop_slug' component={ShopCategories} />
           <Route exact path='/:shop_slug/cart' component={Cart} />
           <Route exact path='/:shop_slug/:category_slug' component={Products} />
+          <Route exact path='/:shop_slug/:category_slug/:product_slug' component={Products} />
           <Route path="*" component={() => { return <h1 style={{ textAlign: 'center' }} > 404, PAGE NOT FOUND </h1> }} />
       </Switch>
     </Router>

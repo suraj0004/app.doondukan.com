@@ -29,11 +29,13 @@ export const productFailure = (error) => {
     }
 }
 
-export const fetchProducts = ( shop_slug, category_slug) => {
+export const fetchProducts = ( shop_slug, category_slug, search) => {
     return (dispatch) => {
         // fetching data
         dispatch(showLoader())
-        api.get(`${shop_slug}/${category_slug}`)
+        api.post(`${shop_slug}/${category_slug}`,{
+            search
+        })
         .then(response => {
             if(response.data.success) {
                 dispatch(productSuccess(response.data.data))
