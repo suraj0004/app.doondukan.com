@@ -14,7 +14,7 @@ const Home = ({ shops, fetchShopList }) => {
     <MainLayout>
       <div className="page-padding-top mb-5 pb-5">
         <h1 className="text-center border-bottom mb-3 pb-3">
-          Welcome to DoonDukan: test
+          Welcome to DoonDukan
         </h1>
         <h3 className="text-left">Shops near me ({shops.data.length})</h3>
         <div className="">
