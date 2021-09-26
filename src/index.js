@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >
       <App />
-      <pwa-update></pwa-update>
+      {/* <pwa-update></pwa-update> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
