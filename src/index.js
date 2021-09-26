@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from 'ReduxStore/store';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import '@pwabuilder/pwaupdate'
+// import '@pwabuilder/pwaupdate'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >
@@ -21,12 +21,13 @@ ReactDOM.render(
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.register({
   onUpdate: (e) => {
+    console.log("on update suraj");
     const { waiting: { postMessage = null } = {}, update } = e || {};
     if (postMessage) {
       postMessage({ type: 'SKIP_WAITING' });
     }
     update().then(() => {
-      window.location.reload();
+      window.location.reload(true);
     });
   },
 });
