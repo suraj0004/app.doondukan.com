@@ -70,22 +70,3 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
-self.addEventListener('updatefound', () => {
-  console.log('Update found. Waiting for install to complete.');
-  const installingWorker = registration.installing;
-
-  // Watch for changes to the worker's state. Once it is "installed", our cache
-  // has been updated with our new files, so we can prompt the user to instantly
-  // reload.
-  installingWorker.addEventListener('statechange', () => {
-    if(installingWorker.state === 'installed') {
-      console.log('Install complete. Triggering update prompt.');
-      ons.notification.confirm('A new update is ready. Do you want to update now?')
-      .then(buttonIndex => {
-        if(buttonIndex === 1) {
-          location.reload();
-        }
-      });
-    }
-  });
-});

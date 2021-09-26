@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from 'ReduxStore/store';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-
+import '@pwabuilder/pwaupdate'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >
       <App />
+      <pwa-update></pwa-update>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
