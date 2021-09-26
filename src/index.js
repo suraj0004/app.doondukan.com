@@ -21,7 +21,7 @@ ReactDOM.render(
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.register({
   onUpdate: (e) => {
-    console.log("on update suraj");
+    console.log("on update suraj",e);
     const { waiting: { postMessage = null } = {}, update } = e || {};
     if (postMessage) {
       postMessage({ type: 'SKIP_WAITING' });
