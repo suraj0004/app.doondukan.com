@@ -70,6 +70,3 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
-self.addEventListener('updatefound', () => {
-  console.log('Update found. Waiting for install to complete.');
-});
