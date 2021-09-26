@@ -16,7 +16,7 @@ const Home = ({ shops, fetchShopList }) => {
         <h1 className="text-center border-bottom mb-3 pb-3">
           Welcome to DoonDukan
         </h1>
-        <h3 className="text-left">Shops near me ({shops.data.length})</h3>
+        <h3 className="text-left">Shop's near me ({shops.data.length})</h3>
         <div className="">
           {shops.loading ? "Loading..." : <ShopList shops={shops.data} />}
         </div>
