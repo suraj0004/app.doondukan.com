@@ -20,6 +20,7 @@ jobs:
       run: |
         cat <<EOT >> .env
         REACT_APP_API_BASE_PATH=${{ secrets.REACT_APP_API_BASE_PATH }}
+        REACT_APP_GOOGLE_MAP_KEY=${{ secrets.REACT_APP_GOOGLE_MAP_KEY }}
         EOT
         cat .env
     - name: 🔨 Build Project
